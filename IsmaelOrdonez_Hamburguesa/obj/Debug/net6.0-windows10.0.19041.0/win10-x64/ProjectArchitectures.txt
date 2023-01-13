@@ -1,1 +1,1 @@
-D:\repos\IsmaelOrdonez_Hamburguesa\IsmaelOrdonez_Hamburguesa\IsmaelOrdonez_Hamburguesa.csproj;x64
+C:\Users\Gaming\Source\Repos\JILogio\IsmaelOrdonez_Hamburguesa\IsmaelOrdonez_Hamburguesa\IsmaelOrdonez_Hamburguesa.csproj;x64
