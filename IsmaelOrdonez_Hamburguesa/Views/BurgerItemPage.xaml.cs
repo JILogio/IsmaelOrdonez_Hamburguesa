@@ -18,12 +18,12 @@ public partial class BurgerItemPage : ContentPage
 		Item.Description = descB.Text;
 		Item.WithExtraCheese = _flag;
 		App.BurgerRepo.AddNewBurger(Item);
-		Shell.Current.GoToAsync("..");
+		Shell.Current.GoToAsync("Main");
     }
 
 	private void OnCancelClicked(object sender, EventArgs e)
 	{
-		Shell.Current.GoToAsync("..");
+		Shell.Current.GoToAsync("Main");
 	}
 
 	private void OnCheckedChanged(object sender, CheckedChangedEventArgs e)
