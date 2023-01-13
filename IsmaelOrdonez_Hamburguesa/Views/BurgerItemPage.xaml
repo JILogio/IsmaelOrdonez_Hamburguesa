@@ -17,6 +17,7 @@
             <CheckBox x:Name="check" CheckedChanged="OnCheckedChanged" />
 
             <Button Text="Guardar" Clicked="OnSaveClicked" />
+            <Button Text="Eliminar" Clicked="OnDeleteClicked" />
             <Button Text="Cancelar" Clicked="OnCancelClicked" />
         </VerticalStackLayout>
     </ScrollView>
