@@ -10,7 +10,7 @@
             Spacing="20"
             Padding="10">
 
-            <CollectionView x:Name="J_List" Grid.Row="4">
+            <CollectionView x:Name="J_List" Grid.Row="4" SelectionChanged="J_selected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -21,12 +21,16 @@
 
                             <Label Text="{Binding Id}" />
                             <Label Grid.Column="1" Text="{Binding Name}" />
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer/>
+                            </Grid.GestureRecognizers>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Añadir nuevo registro" Clicked="Button_Clicked" VerticalOptions="End"/>
+            <Button Text="Añadir nuevo registro" Clicked="JClicked" VerticalOptions="End"/>
 
         </VerticalStackLayout>
     </ScrollView>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Android.App;
 using IsmaelOrdonez_Hamburguesa.Models;
 using SQLite;
 
@@ -29,9 +30,19 @@ namespace IsmaelOrdonez_Hamburguesa.Data
 
         public int AddNewBurger(Burger burger)
         {
+            int result = 0;
             Init();
-            int result = conn.Insert(burger);
+            if (burger.Name == null || burger.Description == null)
+                return result;
+
+            result = conn.Insert(burger);
             return result;
+        }
+
+        public void DeleteBurger(Burger burger)
+        {
+            Init();
+            conn.Delete(burger);
         }
 
         public List<Burger> GetAllBurger()

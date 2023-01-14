@@ -1,10 +1,13 @@
 ﻿using IsmaelOrdonez_Hamburguesa.Models;
+using IsmaelOrdonez_Hamburguesa.Views;
+using Microsoft.Maui.ApplicationModel.Communication;
+using Microsoft.Maui.Controls;
 
 namespace IsmaelOrdonez_Hamburguesa;
 
 public partial class MainPage : ContentPage
 {
-
+    Burger selected;
 	public MainPage()
 	{
 		InitializeComponent();
@@ -13,8 +16,14 @@ public partial class MainPage : ContentPage
         J_List.ItemsSource = burger;
     }
 
-	private void Button_Clicked(object sender, EventArgs e)
+	private void JClicked(object sender, EventArgs e)
 	{
+        Shell.Current.GoToAsync("Burger");
+    }
+
+    private void J_selected(object sender, SelectionChangedEventArgs e)
+    {
+        selected = e.CurrentSelection[0] as Burger;
         Shell.Current.GoToAsync("Burger");
     }
 }

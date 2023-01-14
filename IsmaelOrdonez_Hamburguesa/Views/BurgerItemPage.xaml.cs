@@ -33,6 +33,8 @@ public partial class BurgerItemPage : ContentPage
 
 	private void OnDeleteClicked(object sender, EventArgs e)
 	{
-        Shell.Current.GoToAsync("Main");
+		/*Item = BindingContext.Burger;
+		App.BurgerRepo.DeleteBurger();
+        Shell.Current.GoToAsync("Main");*/
     }
 }
