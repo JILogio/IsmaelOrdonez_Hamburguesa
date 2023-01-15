@@ -3,20 +3,20 @@ using IsmaelOrdonez_Hamburguesa.Models;
 
 namespace IsmaelOrdonez_Hamburguesa.Views;
 
-//[QueryProperty(nameof(J_pass), "pass")]
+[QueryProperty(nameof(J_pass), "pass")]
 public partial class BurgerItemPage : ContentPage
 {
 	Burger Item = new Burger();
 	bool _flag;
-    Burger pass = new Burger();
-    /*public Burger J_pass
+    public static Burger pass;
+    public Burger J_pass
     {
         get => pass;
         set
         {
             pass = value;
         }
-    }*/
+    }
 
 	public BurgerItemPage()
 	{
@@ -28,13 +28,18 @@ public partial class BurgerItemPage : ContentPage
 		Item.Name = nameB.Text;
 		Item.Description = descB.Text;
 		Item.WithExtraCheese = _flag;
+
+		if (string.IsNullOrEmpty(Item.Name) || string.IsNullOrEmpty(Item.Description))
+		{
+			return;
+		}
 		App.BurgerRepo.AddNewBurger(Item);
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 
 	private async void OnCancelClicked(object sender, EventArgs e)
 	{
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 
 	private void OnCheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -46,6 +51,6 @@ public partial class BurgerItemPage : ContentPage
 	{
 		Item = pass;
 		App.BurgerRepo.DeleteBurger(Item);
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 }

@@ -20,13 +20,15 @@ public partial class MainPage : ContentPage
 	private void JClicked(object sender, EventArgs e)
 	{
         Shell.Current.GoToAsync("Burger");
-        //Navigation.PushModalAsync(new BurgerItemPage(selected));
     }
 
     private void J_selected(object sender, SelectionChangedEventArgs e)
     {
         selected = e.CurrentSelection[0] as Burger;
-        Shell.Current.GoToAsync("Burger?pass=selected");
-        //Navigation.PushModalAsync(new BurgerItemPage(selected));
+        var navigation = new Dictionary<string,object>
+        {
+            {"pass",selected}
+        };
+        Shell.Current.GoToAsync("Burger",navigation);
     }
 }

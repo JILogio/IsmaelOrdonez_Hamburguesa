@@ -29,12 +29,6 @@ namespace IsmaelOrdonez_Hamburguesa.Data
                 return conn.Update(burger);
             else
                 return conn.Insert(burger);
-            /*
-            if (burger.Name == null || burger.Description == null)
-                return result;
-
-            result = conn.Insert(burger);
-            return result;*/
         }
 
         public int DeleteBurger(Burger burger)
@@ -49,37 +43,5 @@ namespace IsmaelOrdonez_Hamburguesa.Data
             List<Burger> burgers = conn.Table<Burger>().ToList();
             return burgers;
         }
-
-        /*private async Task Init()
-        {
-            if (conn != null)
-                return;
-
-            conn = new SQLiteAsyncConnection(_dbPath);
-
-            await conn.CreateTableAsync<Burger>();
-        }
-
-        public async Task<int> AddNewBurger(Burger burger)
-        {
-            await Init();
-            if (burger.Id !=0)
-                return await conn.UpdateAsync(burger);
-            else
-                return await conn.InsertAsync(burger);
-        }
-
-        public async Task<List<Burger>> GetAllBurger()
-        {
-            await Init();
-            List<Burger> burgers = await conn.Table<Burger>().ToListAsync();
-            return burgers;
-        }
-
-        public async Task<int> DeleteBurger(Burger burger)
-        {
-            await Init();
-            return await conn.DeleteAsync(burger);
-        }*/
     }
 }
