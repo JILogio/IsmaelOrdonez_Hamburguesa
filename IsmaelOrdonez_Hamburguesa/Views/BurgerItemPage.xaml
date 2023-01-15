@@ -8,10 +8,10 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="10" VerticalOptions="StartAndExpand">
             <Label Text="Nombre" />
-            <Entry x:Name="nameB" Text="{Binding Name}" />
-            
+            <Entry x:Name="nameB" Text="{Binding Name}"/>
+
             <Label Text="Description" />
-            <Entry x:Name="descB" Text="{Binding Description}" />
+            <Entry x:Name="descB" Text="{Binding Description}"/>
 
             <Label Text="¿Con queso extra?" />
             <CheckBox x:Name="check" CheckedChanged="OnCheckedChanged" />

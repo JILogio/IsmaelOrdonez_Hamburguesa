@@ -24,6 +24,6 @@ public partial class MainPage : ContentPage
     private void J_selected(object sender, SelectionChangedEventArgs e)
     {
         selected = e.CurrentSelection[0] as Burger;
-        Shell.Current.GoToAsync("Burger");
+        Shell.Current.GoToAsync("Burger?pass=selected");
     }
 }

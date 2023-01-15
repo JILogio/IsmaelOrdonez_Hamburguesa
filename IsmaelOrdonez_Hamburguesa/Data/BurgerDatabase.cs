@@ -45,6 +45,18 @@ namespace IsmaelOrdonez_Hamburguesa.Data
             conn.Delete(burger);
         }
 
+        public int UpdateBurger(Burger burger)
+        {
+            int result = 0;
+            Init();
+            if (burger.Name == null || burger.Description == null)
+                return result;
+
+            result = conn.Update(burger);
+            return result;
+
+        }
+
         public List<Burger> GetAllBurger()
         {
             Init();
