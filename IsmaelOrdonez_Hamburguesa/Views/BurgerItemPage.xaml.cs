@@ -3,25 +3,25 @@ using IsmaelOrdonez_Hamburguesa.Models;
 
 namespace IsmaelOrdonez_Hamburguesa.Views;
 
-[QueryProperty(nameof(J_pass), "pass")]
+//[QueryProperty(nameof(J_pass), "pass")]
 public partial class BurgerItemPage : ContentPage
 {
 	Burger Item = new Burger();
 	bool _flag;
     Burger pass = new Burger();
-    public Burger J_pass
+    /*public Burger J_pass
     {
         get => pass;
         set
         {
             pass = value;
         }
-    }
+    }*/
 
-    public BurgerItemPage()
+	public BurgerItemPage()
 	{
 		InitializeComponent();
-	}
+    }
 
 	private async void OnSaveClicked(object sender, EventArgs e)
 	{
@@ -42,10 +42,10 @@ public partial class BurgerItemPage : ContentPage
 		_flag = e.Value;
 	}
 
-	private void OnDeleteClicked(object sender, EventArgs e)
+	private async void OnDeleteClicked(object sender, EventArgs e)
 	{
 		Item = pass;
 		App.BurgerRepo.DeleteBurger(Item);
-		Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("Main");
 	}
 }

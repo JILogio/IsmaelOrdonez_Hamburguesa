@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using Android.App;
+﻿//using Android.App;
 using IsmaelOrdonez_Hamburguesa.Models;
 using SQLite;
 
@@ -30,31 +25,22 @@ namespace IsmaelOrdonez_Hamburguesa.Data
 
         public int AddNewBurger(Burger burger)
         {
-            int result = 0;
-            Init();
+            if (burger.Id != 0)
+                return conn.Update(burger);
+            else
+                return conn.Insert(burger);
+            /*
             if (burger.Name == null || burger.Description == null)
                 return result;
 
             result = conn.Insert(burger);
-            return result;
+            return result;*/
         }
 
-        public void DeleteBurger(Burger burger)
+        public int DeleteBurger(Burger burger)
         {
             Init();
-            conn.Delete(burger);
-        }
-
-        public int UpdateBurger(Burger burger)
-        {
-            int result = 0;
-            Init();
-            if (burger.Name == null || burger.Description == null)
-                return result;
-
-            result = conn.Update(burger);
-            return result;
-
+            return conn.Delete(burger);
         }
 
         public List<Burger> GetAllBurger()
@@ -63,5 +49,37 @@ namespace IsmaelOrdonez_Hamburguesa.Data
             List<Burger> burgers = conn.Table<Burger>().ToList();
             return burgers;
         }
+
+        /*private async Task Init()
+        {
+            if (conn != null)
+                return;
+
+            conn = new SQLiteAsyncConnection(_dbPath);
+
+            await conn.CreateTableAsync<Burger>();
+        }
+
+        public async Task<int> AddNewBurger(Burger burger)
+        {
+            await Init();
+            if (burger.Id !=0)
+                return await conn.UpdateAsync(burger);
+            else
+                return await conn.InsertAsync(burger);
+        }
+
+        public async Task<List<Burger>> GetAllBurger()
+        {
+            await Init();
+            List<Burger> burgers = await conn.Table<Burger>().ToListAsync();
+            return burgers;
+        }
+
+        public async Task<int> DeleteBurger(Burger burger)
+        {
+            await Init();
+            return await conn.DeleteAsync(burger);
+        }*/
     }
 }
