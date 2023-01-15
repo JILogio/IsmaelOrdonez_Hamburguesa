@@ -3,29 +3,28 @@ using IsmaelOrdonez_Hamburguesa.Models;
 
 namespace IsmaelOrdonez_Hamburguesa.Views;
 
-[QueryProperty(nameof(J_pass),"pass")]
+[QueryProperty(nameof(J_pass), "Pass")]
 public partial class BurgerItemPage : ContentPage
 {
 	Burger Item = new Burger();
-	Burger pass;
-    bool _flag;
+	Burger Pass = new Burger();
+	bool _flag;
 
-    public Burger J_pass
-    {
-        get => pass;
-        set
-        {
-            pass = value;
-        }
-    }
-
-    public BurgerItemPage()
+	public Burger J_pass
 	{
-		InitializeComponent();
-		BindingContext = this;
+		get => Pass;
+		set
+		{
+			Pass = value;
+		}
+	}
+
+	public BurgerItemPage()
+	{
+        InitializeComponent();
     }
 
-    private async void OnSaveClicked(object sender, EventArgs e)
+	private async void OnSaveClicked(object sender, EventArgs e)
 	{
 		Item.Name = nameB.Text;
 		Item.Description = descB.Text;
@@ -49,10 +48,18 @@ public partial class BurgerItemPage : ContentPage
 		_flag = e.Value;
 	}
 
-	private async void OnDeleteClicked(object sender, EventArgs e)
+	private void OnDeleteClicked(object sender, EventArgs e)
 	{
-		Item = pass;
-		App.BurgerRepo.DeleteBurger(Item);
-		await Shell.Current.GoToAsync("Main");
+		Item = Pass;
+		//App.BurgerRepo.DeleteBurger(Item);
+		//await Shell.Current.GoToAsync("Main");
+		DisplayData();
+	}
+
+	private void DisplayData()
+	{
+		Item = Pass;
+		BindingContext = Item;
+		check.IsChecked = Item.WithExtraCheese;
 	}
 }

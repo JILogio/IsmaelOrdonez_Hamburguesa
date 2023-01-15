@@ -20,14 +20,14 @@ public partial class MainPage : ContentPage
         await Shell.Current.GoToAsync("Burger");
     }
 
-    private void J_selected(object sender, SelectionChangedEventArgs e)
+    private async void J_selected(object sender, SelectionChangedEventArgs e)
     {
         selected = e.CurrentSelection[0] as Burger;
         var navigation = new Dictionary<string,object>
         {
-            {"pass",selected}
+            {"Pass",selected}
         };
-        Shell.Current.GoToAsync("Burger",navigation);
+        await Shell.Current.GoToAsync("Burger",navigation);
     }
 
     private static List<Burger> UpdateList()

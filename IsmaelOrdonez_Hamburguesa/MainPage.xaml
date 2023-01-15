@@ -18,13 +18,13 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Grid.Column="1" Text="{Binding Name}" HorizontalOptions="Center"/>
+                            <Label Grid.Column="1" Text="{Binding  Name}" HorizontalOptions="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Añadir nuevo registro" Clicked="J_Add" VerticalOptions="End"/>
+            <Button Text="Añadir nuevo registro" Clicked="J_Add"/>
 
         </VerticalStackLayout>
     </ScrollView>

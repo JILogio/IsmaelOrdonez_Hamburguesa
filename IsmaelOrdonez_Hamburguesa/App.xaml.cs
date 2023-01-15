@@ -1,4 +1,5 @@
 ﻿using IsmaelOrdonez_Hamburguesa.Data;
+using IsmaelOrdonez_Hamburguesa.Models;
 using IsmaelOrdonez_Hamburguesa.Views;
 
 namespace IsmaelOrdonez_Hamburguesa;
