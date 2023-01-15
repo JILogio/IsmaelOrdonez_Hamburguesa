@@ -16,17 +16,15 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="2*" />
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding Id}" />
-                            <Label Grid.Column="1" Text="{Binding Name}" />
+                            <Label Grid.Column="1" Text="{Binding Name}" HorizontalOptions="Center"/>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Añadir nuevo registro" Clicked="JClicked" VerticalOptions="End"/>
+            <Button Text="Añadir nuevo registro" Clicked="J_Add" VerticalOptions="End"/>
 
         </VerticalStackLayout>
     </ScrollView>

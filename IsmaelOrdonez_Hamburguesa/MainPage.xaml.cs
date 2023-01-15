@@ -12,14 +12,12 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
-
-        List<Burger> burger = App.BurgerRepo.GetAllBurger();
-        J_List.ItemsSource = burger;
+        J_List.ItemsSource = UpdateList();
     }
 
-	private void JClicked(object sender, EventArgs e)
+	private async void J_Add(object sender, EventArgs e)
 	{
-        Shell.Current.GoToAsync("Burger");
+        await Shell.Current.GoToAsync("Burger");
     }
 
     private void J_selected(object sender, SelectionChangedEventArgs e)
@@ -30,5 +28,11 @@ public partial class MainPage : ContentPage
             {"pass",selected}
         };
         Shell.Current.GoToAsync("Burger",navigation);
+    }
+
+    private static List<Burger> UpdateList()
+    {
+        List<Burger> burger = App.BurgerRepo.GetAllBurger();
+        return burger;
     }
 }

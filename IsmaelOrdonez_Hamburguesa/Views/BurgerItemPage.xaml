@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:IsmaelOrdonez_Hamburguesa.Models"
+             xmlns:data="IsmaelOrdonez_Hamburguesa.MainPage"
              x:Class="IsmaelOrdonez_Hamburguesa.Views.BurgerItemPage"
              Title="Añadir registro">
 
