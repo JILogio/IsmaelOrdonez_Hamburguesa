@@ -10,24 +10,24 @@ public partial class MainPage : ContentPage
 {
     Burger selected;
     public MainPage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         J_List.ItemsSource = UpdateList();
     }
 
-	private async void J_Add(object sender, EventArgs e)
-	{
+    private async void J_Add(object sender, EventArgs e)
+    {
         await Shell.Current.GoToAsync("Burger");
     }
 
     private async void J_selected(object sender, SelectionChangedEventArgs e)
     {
         selected = e.CurrentSelection[0] as Burger;
-        var navigation = new Dictionary<string,object>
+        await Navigation.PushAsync(new BurgerItemPage
         {
-            {"Pass",selected}
-        };
-        await Shell.Current.GoToAsync("Burger",navigation);
+            J_pass = selected,
+            BindingContext = selected,
+        });
     }
 
     private static List<Burger> UpdateList()

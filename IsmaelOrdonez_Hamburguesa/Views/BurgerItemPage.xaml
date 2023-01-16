@@ -19,7 +19,7 @@
             <Entry x:Name="descB" Text="{Binding Description}"/>
 
             <Label Text="¿Con queso extra?" />
-            <CheckBox x:Name="check" CheckedChanged="OnCheckedChanged" />
+            <CheckBox x:Name="check" CheckedChanged="OnCheckedChanged" IsChecked="{Binding WithExtraCheese}"/>
 
             <Button Text="Guardar" Clicked="OnSaveClicked" />
             <Button Text="Eliminar" Clicked="OnDeleteClicked" />

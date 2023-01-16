@@ -7,10 +7,15 @@ namespace IsmaelOrdonez_Hamburguesa.Views;
 public partial class BurgerItemPage : ContentPage
 {
 	Burger Item = new Burger();
-	Burger Pass = new Burger();
-	bool _flag;
+    Burger Pass = new Burger();
+    bool _flag;
 
-	public Burger J_pass
+    public BurgerItemPage()
+    {
+        InitializeComponent();
+    }
+
+    public Burger J_pass
 	{
 		get => Pass;
 		set
@@ -19,13 +24,9 @@ public partial class BurgerItemPage : ContentPage
 		}
 	}
 
-	public BurgerItemPage()
-	{
-        InitializeComponent();
-    }
-
 	private async void OnSaveClicked(object sender, EventArgs e)
 	{
+		Item = Pass;
 		Item.Name = nameB.Text;
 		Item.Description = descB.Text;
 		Item.WithExtraCheese = _flag;
@@ -48,18 +49,10 @@ public partial class BurgerItemPage : ContentPage
 		_flag = e.Value;
 	}
 
-	private void OnDeleteClicked(object sender, EventArgs e)
+	private async void OnDeleteClicked(object sender, EventArgs e)
 	{
 		Item = Pass;
-		//App.BurgerRepo.DeleteBurger(Item);
-		//await Shell.Current.GoToAsync("Main");
-		DisplayData();
-	}
-
-	private void DisplayData()
-	{
-		Item = Pass;
-		BindingContext = Item;
-		check.IsChecked = Item.WithExtraCheese;
+		App.BurgerRepo.DeleteBurger(Item);
+		await Shell.Current.GoToAsync("Main");
 	}
 }
