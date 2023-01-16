@@ -10,7 +10,7 @@
             Spacing="20"
             Padding="10">
 
-            <CollectionView x:Name="J_List" Grid.Row="4" SelectionMode="Single" SelectionChanged="J_selected">
+            <CollectionView x:Name="J_List" Grid.Row="4" SelectionMode="Single" SelectionChanged="JO_selected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -24,7 +24,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Añadir nuevo registro" Clicked="J_Add"/>
+            <Button Text="Añadir nuevo registro" Clicked="JO_Add"/>
 
         </VerticalStackLayout>
     </ScrollView>

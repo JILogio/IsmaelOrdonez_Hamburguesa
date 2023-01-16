@@ -17,7 +17,7 @@ public static class MauiProgram
 			});
 
         string dbPath = FileAccessHelper.GetLocalFilePath("burger.db3");
-        builder.Services.AddSingleton<BurgerDatabase>(s => ActivatorUtilities.CreateInstance<BurgerDatabase>(s, dbPath));
+        builder.Services.AddSingleton<JOBurgerDatabase>(s => ActivatorUtilities.CreateInstance<JOBurgerDatabase>(s, dbPath));
 
         return builder.Build();
     }

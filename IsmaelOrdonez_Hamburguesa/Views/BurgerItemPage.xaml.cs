@@ -6,8 +6,8 @@ namespace IsmaelOrdonez_Hamburguesa.Views;
 [QueryProperty(nameof(J_pass), "Pass")]
 public partial class BurgerItemPage : ContentPage
 {
-	Burger Item = new Burger();
-    Burger Pass = new Burger();
+	JOBurger Item = new JOBurger();
+    JOBurger Pass = new JOBurger();
     bool _flag;
 
     public BurgerItemPage()
@@ -15,7 +15,7 @@ public partial class BurgerItemPage : ContentPage
         InitializeComponent();
     }
 
-    public Burger J_pass
+    public JOBurger J_pass
 	{
 		get => Pass;
 		set
@@ -24,7 +24,7 @@ public partial class BurgerItemPage : ContentPage
 		}
 	}
 
-	private async void OnSaveClicked(object sender, EventArgs e)
+	private async void JO_Save(object sender, EventArgs e)
 	{
 		Item = Pass;
 		Item.Name = nameB.Text;
@@ -39,17 +39,17 @@ public partial class BurgerItemPage : ContentPage
 		await Shell.Current.GoToAsync("Main");
 	}
 
-	private async void OnCancelClicked(object sender, EventArgs e)
+	private async void JO_Cancel(object sender, EventArgs e)
 	{
 		await Shell.Current.GoToAsync("Main");
 	}
 
-	private void OnCheckedChanged(object sender, CheckedChangedEventArgs e)
+	private void JO_CheckedChanged(object sender, CheckedChangedEventArgs e)
 	{
 		_flag = e.Value;
 	}
 
-	private async void OnDeleteClicked(object sender, EventArgs e)
+	private async void JO_Delete(object sender, EventArgs e)
 	{
 		Item = Pass;
 		App.BurgerRepo.DeleteBurger(Item);
