@@ -12,7 +12,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        J_List.ItemsSource = UpdateList();
+        //J_List.ItemsSource = UpdateList();
     }
 
     private async void JO_Add(object sender, EventArgs e)
@@ -30,9 +30,15 @@ public partial class MainPage : ContentPage
         });
     }
 
-    private static List<JOBurger> UpdateList()
+    /*private static List<JOBurger> UpdateList()
     {
         List<JOBurger> burger = App.BurgerRepo.GetAllBurger();
         return burger;
+    }*/
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        List<JOBurger> burger = App.BurgerRepo.GetAllBurger();
+        J_List.ItemsSource = burger;
     }
 }

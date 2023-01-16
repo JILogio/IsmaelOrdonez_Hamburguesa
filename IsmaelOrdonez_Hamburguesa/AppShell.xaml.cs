@@ -9,6 +9,6 @@ public partial class AppShell : Shell
 		InitializeComponent();
 
         Routing.RegisterRoute("Burger", typeof(BurgerItemPage));
-        Routing.RegisterRoute("Main", typeof(MainPage));
+        //Routing.RegisterRoute("Main", typeof(MainPage));
     }
 }

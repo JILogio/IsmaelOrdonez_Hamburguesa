@@ -36,12 +36,12 @@ public partial class BurgerItemPage : ContentPage
 			return;
 		}
 		App.BurgerRepo.AddNewBurger(Item);
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 
 	private async void JO_Cancel(object sender, EventArgs e)
 	{
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 
 	private void JO_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -53,6 +53,6 @@ public partial class BurgerItemPage : ContentPage
 	{
 		Item = Pass;
 		App.BurgerRepo.DeleteBurger(Item);
-		await Shell.Current.GoToAsync("Main");
+		await Shell.Current.GoToAsync("..");
 	}
 }
