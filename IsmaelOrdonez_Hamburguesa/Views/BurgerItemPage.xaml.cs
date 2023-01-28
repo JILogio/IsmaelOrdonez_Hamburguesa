@@ -6,7 +6,7 @@ namespace IsmaelOrdonez_Hamburguesa.Views;
 [QueryProperty(nameof(J_pass), "Pass")]
 public partial class BurgerItemPage : ContentPage
 {
-	JOBurger Item = new JOBurger();
+    JOBurger Item = new JOBurger();
     JOBurger Pass = new JOBurger();
     bool _flag;
 
